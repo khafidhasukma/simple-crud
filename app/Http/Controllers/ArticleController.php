@@ -25,6 +25,7 @@ class ArticleController extends Controller
         $create = Article::create($inputs);
 
         if($create) {
+            session()->flash('notif.success', 'Article created successfully!');
             return redirect()->route('article.index');
         }
 
@@ -46,6 +47,7 @@ class ArticleController extends Controller
         $update = $article->update($inputs); 
 
         if($update) {
+            session()->flash('notif.success', 'Article updated successfully!');
             return redirect()->route('article.index');
         }
 
@@ -58,6 +60,7 @@ class ArticleController extends Controller
         $delete = $article->delete();
 
         if($delete) {
+            session()->flash('notif.success', 'User deleted successfully!');
             return redirect()->route('article.index');
         }
     }
